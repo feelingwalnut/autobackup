@@ -9,10 +9,10 @@ echo "==================================================="
     source="fill data here"
     
 # Check if the drive is connected
-if [ -e /dev/disk/by-uuid/"UUID" ]; then
+if [ -e /dev/disk/by-uuid/"$UUID" ]; then
     # Mount the partition to /mnt/backup
     if ! grep -qs "$mount_point" /proc/mounts; then
-        mount /dev/disk/by-uuid/"UUID" "$mount_point"
+        mount /dev/disk/by-uuid/"$UUID" "$mount_point"
         if ! grep -qs "$mount_point" /proc/mounts; then
             echo "Failed to mount the drive"
             exit 1
